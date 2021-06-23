@@ -11,7 +11,7 @@ Local에 저장된 `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`는 `AWS SSM`을 
 
 ## **How to Implement**
 ### **S3 셋팅**
->![GitOPs_S3bucket1](./img/GitOPs_S3bucket1.jpg)
+>![GitOps_S3bucket1](./img/GitOps_S3bucket1.jpg)
 >
 >`.tfstate`파일을 저장하고 무결성을 달성하기 위한 `S3`와 `DynamoDB`를 셋팅.\
 >`artifact`를 저장하기 위한 `S3`를 셋팅함.
@@ -51,19 +51,19 @@ Local에 저장된 `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`는 `AWS SSM`을 
 >#### **결과 확인**
 > **S3**
 >
->![GitOPs_S3bucket2](./img/GitOPs_S3bucket2.jpg)
+>![GitOps_S3bucket2](./img/GitOps_S3bucket2.jpg)
 >
 > **DynamoDB**
 >
->![GitOPs_DynamoDB](./img/GitOPs_DynamoDB.jpg)
+>![GitOps_DynamoDB](./img/GitOps_DynamoDB.jpg)
 >
 ### **AWS System Manager - Parameter Store**
->![GitOPs_SSM1](./img/GitOPs_SSM1.jpg)
+>![GitOps_SSM1](./img/GitOps_SSM1.jpg)
 >
 > `CodeBuild`시에 필요한 `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`를 `AWS System Manager`의 `Parameter Store`를 이용해 등록함.
 >#### **결과 확인**
 >**Parameter Store**
->![GitOPs_SSM2](./img/GitOPs_SSM2.jpg)
+>![GitOps_SSM2](./img/GitOps_SSM2.jpg)
 >
 >정상적으로 `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`가 등록된 것을 확인.
 ### **CodePipeLine & CodeBuild**
@@ -88,7 +88,7 @@ Local에 저장된 `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`는 `AWS SSM`을 
 >> ![GitOPs_CodeBuild3](./img/GitOps_CodeBuild3.jpg)
 >>
 >> `buildspec.yml`파일은 다양하게 구현함.\
->> 나는 테스트를 위해 `buildspec_apply.yml`, `buildspec_destroy.yml`를 작성.
+>> 나는 테스트를 위해 `buildspec_apply.yml`, `buildspec_destroy.yml`를 작성.\
 >>**buildspec_apply.yml**
 >>```
 >>version: 0.2
@@ -125,7 +125,7 @@ Local에 저장된 `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`는 `AWS SSM`을 
 >>      - echo Terraform destroy....
 >>      - terraform destroy -auto-approve
 >>```
->![GitOps_CodePipeLine3](./img/GitOps_CodePipeLine3.jpg)
+>![GitOps_CodePipeLine3](./img/GitOps_CodePipeLIne3.jpg)
 >
 > 빌드 프로젝트를 선택함.
 >
@@ -136,7 +136,7 @@ Local에 저장된 `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`는 `AWS SSM`을 
 > ![TroubleShoot1](./img/TroubleShoot1.jpg)
 >
 > `CLIENT_ERROR`로 `S3`에서 `SourceArti`를 가져올수 없는것을 확인함.\
-> 이 문제는 처음에 생성된 기본 정책에서 특정 `S3`의 권한이 없기 때문임.\
+> 이 문제는 처음에 생성된 기본 정책에서 특정 `S3`의 권한이 없기 때문임.
 >
 > ![TroubleShoot2](./img/TroubleShoot2.jpg)
 >
@@ -168,7 +168,7 @@ Local에 저장된 `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`는 `AWS SSM`을 
 > 빌드 이후 `S3`에도 `.tfstate`파일이 잘 반영된것을 확인.
 >
 > ![BuildResult4_VPC](./img/BuildResult4_VPC.jpg)
-> ![BuildResult4_Subnet](./img/BuildResult4_Subnet.jpg)
+> ![BuildResult4_Subnet](./img/BuildResult4_subnet.jpg)
 >
 > `Build`의 결과인 `VPC`와 `Subnet`이 잘 만들어진 것을 확인 할 수 있음.
 ## **개선해야할 점**
