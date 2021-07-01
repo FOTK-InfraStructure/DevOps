@@ -111,6 +111,7 @@
 > * `IaC`가 아닌 `Console`을 통해 인스턴스를 생성할 경우 코드, `.tfstate`파일과 현재 클라우드 내의 인스턴스 요소의 불일치가 발생합니다.
 ### **Next Phase**
 >![Destination](./img/Destination.png)
+>
 > 현재 Phase3 에서는 `plan`에 의한 계획 수립 없이 바로 `apply`를 수행합니다.
 >
 > **추가 해야할 프로세스**
